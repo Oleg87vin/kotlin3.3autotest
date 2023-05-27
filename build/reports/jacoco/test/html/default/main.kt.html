@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">KotlinPayAutotest</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">main.kt</span></div><h1>main.kt</h1><pre class="source lang-java linenums">fun main() {
+
+<span class="nc" id="L3">    val typeCard = &quot;VKPay&quot;</span>
+<span class="nc" id="L4">    var sumTransfer: Int = 0</span>
+<span class="nc" id="L5">    val tax: Double = 0.0075</span>
+<span class="nc" id="L6">    var amount: Int = 0</span>
+
+<span class="nc" id="L8">    println(&quot;Р’РµРґРёС‚Рµ СЃСѓРјРјСѓ РїРµСЂРµРІРѕРґР°&quot;)</span>
+<span class="nc" id="L9">    amount = readln().toInt()</span>
+<span class="nc" id="L10">    println(&quot;Р’РµРґРёС‚Рµ СЃСѓРјРјСѓ РїСЂРµРґС‹РґСѓС‰РёС… РїРµСЂРµРІРѕРґР°&quot;)</span>
+<span class="nc" id="L11">    sumTransfer = readln().toInt()</span>
+
+<span class="nc" id="L13">    val sumTax = calcTax(&quot;Visa&quot;, amount, sumTransfer)</span>
+<span class="nc" id="L14">    println(&quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёС‚: $sumTax&quot;)</span>
+<span class="nc" id="L15">}</span>
+
+fun calcTax(typeCard: String, amount: Int, sumTransfer: Int): Int =
+<span class="pc bpc" id="L18" title="1 of 4 branches missed.">    when (typeCard) {</span>
+<span class="fc" id="L19">        &quot;VKPay&quot; -&gt; 0</span>
+        &quot;Mastercard&quot;, &quot;Maestro&quot; -&gt; {
+<span class="fc bfc" id="L21" title="All 2 branches covered.">            if (sumTransfer &lt;= 75_000) 0 else ((amount * 0.06 + 20) * 100).toInt()</span>
+        }
+
+        &quot;Visa&quot;, &quot;Mir&quot; -&gt; {
+<span class="fc" id="L25">            ((amount * 0.75) / 100).toInt()</span>
+        }
+
+<span class="nc" id="L28">        else -&gt; 0</span>
+<span class="fc" id="L29">    }</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
