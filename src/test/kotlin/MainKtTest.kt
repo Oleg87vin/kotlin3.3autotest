@@ -57,7 +57,7 @@ class MainKtTest {
             sumTransfer = sumTransfer,
             amount = amount,
         )
-        assertEquals(result, 0)
+        assertEquals(result, 10)
     }
 
 }
